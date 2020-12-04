@@ -1,35 +1,43 @@
 import { Injectable } from '@angular/core';
-// const algotrader = require('algotrader');
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StockService {
 
+  constructor(private http: HttpClient) {
 
-  constructor() {
-    // const Robinhood = algotrader.Robinhood;
-    // const User = Robinhood.User
-
-    // const options = {
-    //   doNotSaveToDisk: false, // If the `save` method should not store the user login info to disk (file)
-    //   serializedUserFile: null // File to where the serialized user login info can be saved
-    // };
-
-    // const myUser = new User("chaoyu.bupter@gmail.com", "qqfan151252012", options);
-    // myUser.authenticate()
-    // .then(() => {
-    //     // User was authenticated
-    // })
-    // .catch((error: any) => {
-    //   console.log(error)
-    //     // Either the request failed, or Robinhood responded with an error.
-    //     // (Ex: you don't have internet access or your user credentials were incorrect)
-    // })
   }
 
   public quote() : string {
     console.log("SUCCESS")
     return "SUCCESS";
+  }
+
+  public getCNNUrl() {
+    return this.http.get('http://localhost/cnn-img-url', {responseType: 'text'})
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      )
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(
+      'Something bad happened; please try again later.');
   }
 }

@@ -23,9 +23,11 @@
     "@angular/router": "~11.0.0",
     "@angular/service-worker": "~11.0.0",
     "algotrader": "^2.5.4",
+    "robinhood": "^1.7.0",
     "rxjs": "~6.6.0",
     "trading-signals": "^1.2.0",
     "tslib": "^2.0.0",
+    "typescript-tradingview-embed": "^1.0.0",
     "yahoo-finance": "^0.3.6",
     "zone.js": "~0.10.2"
   },

@@ -18,6 +18,7 @@ export class HomeComponent {
     );
 
   public quote;
+  public cnnImgUrl: Observable<string> = this.stockService.getCNNUrl();
 
   constructor(private breakpointObserver: BreakpointObserver, private stockService: StockService) {
     this.quote= this.stockService.quote();

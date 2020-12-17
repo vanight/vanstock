@@ -1,0 +1,25 @@
+{
+  "name": "stock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "finnhub": "^1.2.1",
+    "robinhood": "^1.7.0",
+    "yahoo-stock-api": "^1.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanight/vanstock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanight/vanstock/issues"
+  },
+  "homepage": "https://github.com/vanight/vanstock#readme"
+}

@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "finnhub": "^1.2.1",
+    "finviz": "0.0.3",
     "robinhood": "^1.7.0",
     "yahoo-stock-api": "^1.0.5"
   },

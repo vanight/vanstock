@@ -25,7 +25,11 @@
     <!-- Add Content Here -->
     <mat-grid-list cols="2" rowHeight="2:1">
       <mat-grid-tile>
-        <img [src]="cnnImgUrl | async">
+        <div *ngIf="cnnImgUrl | async as imgUrl; else loading">
+          <a href="https://money.cnn.com/data/fear-and-greed/">
+            <img [src]="imgUrl">
+          </a>
+        </div>
 
       </mat-grid-tile>
       <mat-grid-tile>2</mat-grid-tile>
@@ -40,3 +44,6 @@
 
   </mat-sidenav-content>
 </mat-sidenav-container>
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

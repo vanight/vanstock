@@ -19,8 +19,8 @@ export class HomeComponent {
 
   public quote: string;
   public cnnImgUrl: Observable<string> = this.stockService.getTextReturn('http://localhost/cnn-img-url');
-  public breadth: Observable<string> = this.stockService.getTextReturn('http://localhost/breadth');
-
+  public breadth: Observable<number> = this.stockService.getTextReturn('http://localhost/breadth');
+  public math = Math;
 
   constructor(private breakpointObserver: BreakpointObserver, private stockService: StockService) {
     this.quote= this.stockService.quote();

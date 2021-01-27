@@ -1,8 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#">Summary</a>
@@ -12,11 +10,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
@@ -34,11 +28,19 @@
       </mat-grid-tile>
       <mat-grid-tile>
         <div *ngIf="breadth | async as breadth; else loading">
-        <span>breadth:</span><a href="https://breadth.app/breadth">
-          <span>{{breadth}}</span>
-        </a>
-      </div>
-    </mat-grid-tile>
+          <mat-card> <span>breadth:</span>
+            <a href="https://breadth.app/breadth">
+              <span>{{breadth}}</span>
+            </a>
+          </mat-card>
+          <mat-card> <span>percentage:</span>
+            <a href="https://breadth.app/breadth">
+              <span>{{math.round(breadth/1100)}}</span>
+            </a>
+          </mat-card>
+
+        </div>
+      </mat-grid-tile>
       <mat-grid-tile>3</mat-grid-tile>
       <mat-grid-tile>4</mat-grid-tile>
     </mat-grid-list>

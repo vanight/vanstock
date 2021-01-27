@@ -17,7 +17,7 @@ export class StockService {
     return "SUCCESS";
   }
 
-  public getTextReturn(url: string) {
+  public getTextReturn(url: any) {
     return this.http.get(url, {responseType: 'text'})
       .pipe(
         retry(3),

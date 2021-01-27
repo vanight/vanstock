@@ -17,8 +17,8 @@ export class StockService {
     return "SUCCESS";
   }
 
-  public getCNNUrl() {
-    return this.http.get('http://localhost/cnn-img-url', {responseType: 'text'})
+  public getTextReturn(url: string) {
+    return this.http.get(url, {responseType: 'text'})
       .pipe(
         retry(3),
         catchError(this.handleError)

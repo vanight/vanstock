@@ -5,9 +5,9 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item href="#">Summary</a>
+      <a mat-list-item href="#">SP500</a>
+      <a mat-list-item href="#">Others</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -32,7 +32,13 @@
         </div>
 
       </mat-grid-tile>
-      <mat-grid-tile>2</mat-grid-tile>
+      <mat-grid-tile>
+        <div *ngIf="breadth | async as breadth; else loading">
+        <span>breadth:</span><a href="https://breadth.app/breadth">
+          <span>{{breadth}}</span>
+        </a>
+      </div>
+    </mat-grid-tile>
       <mat-grid-tile>3</mat-grid-tile>
       <mat-grid-tile>4</mat-grid-tile>
     </mat-grid-list>

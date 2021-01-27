@@ -17,8 +17,10 @@ export class HomeComponent {
       shareReplay()
     );
 
-  public quote;
-  public cnnImgUrl: Observable<string> = this.stockService.getCNNUrl();
+  public quote: string;
+  public cnnImgUrl: Observable<string> = this.stockService.getTextReturn('http://localhost/cnn-img-url');
+  public breadth: Observable<string> = this.stockService.getTextReturn('http://localhost/breadth');
+
 
   constructor(private breakpointObserver: BreakpointObserver, private stockService: StockService) {
     this.quote= this.stockService.quote();

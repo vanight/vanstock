@@ -41,8 +41,27 @@
 
         </div>
       </mat-grid-tile>
-      <mat-grid-tile>3</mat-grid-tile>
-      <mat-grid-tile>4</mat-grid-tile>
+      <mat-grid-tile><div style="display: block;">
+        <canvas baseChart
+          [datasets]="scatterChartData"
+          [options]="scatterChartOptions"
+          [chartType]="scatterChartType">
+        </canvas>
+      </div></mat-grid-tile>
+      <mat-grid-tile>
+        <div style="display: block;">
+          <canvas baseChart width="400" height="200"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+
+      </mat-grid-tile>
     </mat-grid-list>
 
 

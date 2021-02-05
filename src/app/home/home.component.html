@@ -27,15 +27,10 @@
 
       </mat-grid-tile>
       <mat-grid-tile>
-        <div *ngIf="breadth | async as breadth; else loading">
-          <mat-card> <span>breadth:</span>
+        <div *ngIf="breadthDataUrl | async as breadth; else loading">
+          <mat-card>
             <a href="https://breadth.app/breadth">
-              <span>{{breadth}}</span>
-            </a>
-          </mat-card>
-          <mat-card> <span>percentage:</span>
-            <a href="https://breadth.app/breadth">
-              <span>{{percentage(breadth) | number:'2.1-2'}}%</span>
+              <img src={{breadth}}>
             </a>
           </mat-card>
 
@@ -60,8 +55,12 @@
             [plugins]="lineChartPlugins">
           </canvas>
         </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div id="technical-analysis"></div>
 
       </mat-grid-tile>
+
     </mat-grid-list>
 
 
